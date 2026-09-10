@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(
   v4-hal
-  VERSION 0.2.1
+  VERSION 0.2.2
   LANGUAGES C CXX)
 
 # C/C++ standards

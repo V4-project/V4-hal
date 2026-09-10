@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-09-10
+
+### Changed
+- Upgrade CI checkout to v5 (Node.js 24). The existing get-cmake action already
+  uses Node.js 24. HAL implementation and build options are unchanged.
+
 ## [0.2.1] - 2026-09-10
 
 ### Fixed
@@ -118,6 +124,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Sanitizer builds (address, undefined behavior)
   - Makefile wrapper validation
 
-[Unreleased]: https://github.com/V4-project/V4-hal/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/V4-project/V4-hal/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/V4-project/V4-hal/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/V4-project/V4-hal/compare/v0.2.0...v0.2.1
 [0.1.0]: https://github.com/kirisaki/V4-hal/releases/tag/v0.1.0
