@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Zero-initialize the ESP32 UART SDK configuration before assigning HAL settings,
+  removing the ESP-IDF 5.5 `uart_config_t.flags` missing-initializer warning.
+  Existing field values and zero-valued optional flags are preserved; this also
+  avoids C++20 designated initializers in the C++17 HAL implementation.
+
+### Validation
+- ESP32-C6 runtime clean build with ESP-IDF 5.5.5: the UART initializer warning
+  is absent; application BIN remains 137,568 B, data 3,932 B and BSS 20,072 B.
+  Disassembly shows reordered configuration stores, with the same assigned
+  values and zeroed flags. POSIX C/C++ API tests (2 CTest targets) and formatting
+  checks pass. Hardware UART behavior has not been tested.
+
 ## [0.1.0] - 2025-10-31
 
 ### Added

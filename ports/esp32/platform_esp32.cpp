@@ -128,15 +128,15 @@ hal_handle_t Esp32Platform::uart_open_impl(int port, const hal_uart_config_t* co
     return reinterpret_cast<hal_handle_t>(static_cast<uintptr_t>(port + 1));
   }
 
-  uart_config_t uart_config = {
-      .baud_rate = config->baudrate,
-      .data_bits = static_cast<uart_word_length_t>(config->data_bits - 5),
-      .parity = static_cast<uart_parity_t>(config->parity),
-      .stop_bits = static_cast<uart_stop_bits_t>(config->stop_bits - 1),
-      .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-      .rx_flow_ctrl_thresh = 0,
-      .source_clk = UART_SCLK_DEFAULT,
-  };
+  // Zero all SDK fields (including optional flags) before assigning HAL settings.
+  uart_config_t uart_config = {};
+  uart_config.baud_rate = config->baudrate;
+  uart_config.data_bits = static_cast<uart_word_length_t>(config->data_bits - 5);
+  uart_config.parity = static_cast<uart_parity_t>(config->parity);
+  uart_config.stop_bits = static_cast<uart_stop_bits_t>(config->stop_bits - 1);
+  uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
+  uart_config.rx_flow_ctrl_thresh = 0;
+  uart_config.source_clk = UART_SCLK_DEFAULT;
 
   uart_port_t uart_num = static_cast<uart_port_t>(port);
 
