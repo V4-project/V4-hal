@@ -19,7 +19,7 @@ This repository contains both public headers and compiled implementation:
 | [tests](tests/) | Mock and unit tests |
 
 The headers, bridges and platform files above are present, not merely planned.
-CMake declares version 0.2.0. That is the source version, not a claim about a published release.
+CMake declares version 0.2.1. That is the source version, not a claim about a published release.
 
 ## Build
 
